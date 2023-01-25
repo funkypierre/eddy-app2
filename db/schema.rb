@@ -37,13 +37,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_25_102212) do
   end
 
   create_table "sales", force: :cascade do |t|
-    t.string "product_type"
-    t.integer "product_id"
+    t.string "product_type", null: false
+    t.integer "product_id", null: false
+    t.integer "artist_id", null: false
     t.string "transaction_type"
+    t.float "net_share"
     t.float "label_share"
     t.float "artist_share"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_sales_on_artist_id"
     t.index ["product_type", "product_id"], name: "index_sales_on_product"
   end
 

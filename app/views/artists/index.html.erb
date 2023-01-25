@@ -1,0 +1,63 @@
+<div class="col-span-full xl:col-span-8 bg-white shadow-lg rounded-sm border border-slate-200">
+  <header class="px-5 py-4 border-b border-slate-100">
+    <h2 class="font-semibold text-slate-800">Artists recap</h2>
+  </header>
+
+  <div class="p-3">
+    <div class="overflow-x-auto">
+      <table class="table-auto w-full">
+        <thead class="text-xs font-semibold uppercase text-slate-400 bg-slate-50">
+          <tr>
+            <th class="p-2 whitespace-nowrap">
+              <div class="font-semibold text-left">Artist</div>
+            </th>
+            <th class="p-2 whitespace-nowrap">
+              <div class="font-semibold text-left">Total statement income</div>
+            </th>
+            <th class="p-2 whitespace-nowrap">
+              <div class="font-semibold text-left">Total artist share</div>
+            </th>
+            <th class="p-2 whitespace-nowrap">
+              <div class="font-semibold text-center">Total label share</div>
+            </th>
+            <th class="p-2 whitespace-nowrap">
+              <div class="font-semibold text-center">Total track sales</div>
+            </th>
+            <th class="p-2 whitespace-nowrap">
+              <div class="font-semibold text-center">Total release sales</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody class="text-sm divide-y divide-slate-100">
+          <% @artists.each do |artist| %>
+            <tr>
+              <td class="p-2 whitespace-nowrap">
+                <div class="flex items-center">
+                  <div class="w-10 h-15 shrink-0 mr-2 sm:mr-3">
+                    <img class="rounded-full" src="https://live-production.wcms.abc-cdn.net.au/05fd760dfa4f582959e4a9f190a69b06?impolicy=wcms_crop_resize&cropH=675&cropW=1199&xPos=0&yPos=0&width=862&height=485" width="40" height="40" />
+                  </div>
+                  <div class="font-medium text-slate-800"><%= artist.name %></div>
+                </div>
+              </td>
+              <td class="p-2 whitespace-nowrap">
+                <div class="text-left font-medium text-green-500">$<%= number_with_delimiter(@artists_shares.dig(:net_shares, artist.id)&.round(2)) || 0 %></div>
+              </td>
+              <td class="p-2 whitespace-nowrap">
+                <div class="text-left font-medium text-green-500">$<%= number_with_delimiter(@artists_shares.dig(:artist_shares, artist.id)&.round(2)) || 0 %></div>
+              </td>
+              <td class="p-2 whitespace-nowrap">
+                <div class="text-left font-medium text-green-500">$<%= number_with_delimiter(@artists_shares.dig(:label_shares, artist.id)&.round(2)) || 0 %></div>
+              </td>
+              <td class="p-2 whitespace-nowrap">
+                <div class="text-left font-medium text-green-500">$<%= number_with_delimiter(@artists_shares.dig(:product_shares, [artist.id, 'Track'])&.round(2)) || 0 %></div>
+              </td>
+              <td class="p-2 whitespace-nowrap">
+                <div class="text-left font-medium text-green-500">$<%= number_with_delimiter(@artists_shares.dig(:product_shares, [artist.id, 'Release'])&.round(2)) || 0 %></div>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

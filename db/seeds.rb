@@ -1,6 +1,6 @@
 t1 = Time.now
 
-SALE_COLUMNS_TO_IMPORT = %i[product_id product_type transaction_type artist_share label_share].freeze
+SALE_COLUMNS_TO_IMPORT = %i[product_id product_type artist_id transaction_type net_share artist_share label_share].freeze
 
 begin
   tracks = FastJsonparser.load('db/tracks.json')
@@ -66,7 +66,9 @@ sales.each_slice(1000) do |batch|
     new_sales.push [
       product.id,
       product.class.name,
+      product.artist_id,
       trans_type,
+      net_share,
       artist_share,
       net_share - artist_share
     ]

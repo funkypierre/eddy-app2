@@ -1,4 +1,6 @@
 class Track < ApplicationRecord
+  belongs_to :artist
+
   has_many :release_tracks
   has_many :releases, through: :release_tracks
 

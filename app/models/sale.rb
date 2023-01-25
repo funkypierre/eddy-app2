@@ -21,4 +21,8 @@ class Sale < ApplicationRecord
   ].freeze
 
   belongs_to :product, polymorphic: true
+  belongs_to :artist
+
+  scope :releases, -> { where(product_type: 'Release') }
+  scope :tracks, -> { where(product_type: 'Track') }
 end
