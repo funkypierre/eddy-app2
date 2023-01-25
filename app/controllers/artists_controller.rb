@@ -1,18 +1,22 @@
 class ArtistsController < ApplicationController
-  def index
+  CATALOG_LIMIT = 10.freeze
+
+  def recap
     @artists = Artist.includes(:sales).all
     @artists_shares = artists_shares
-    # @artists = serialized_artists
-    # puts "tata", artists_shares
+  end
+
+  def catalog
+    @artists = Artist.includes(releases: :tracks).limit(CATALOG_LIMIT)
+    filter_artists
   end
 
   private
 
-  # def serialized_artists
-  #   @artists.map do |artist|
-  #     { name: artist.name, shares: artists_shares[artist.id] }
-  #   end
-  # end
+  def filter_artists
+    @artists = @artists.where(releases: { year: params[:year] }) if params[:year].present?
+    @artists = @artists.where('lower(name) LIKE ?', "%#{params[:search]}%") if params[:search].present?
+  end
 
   def artists_shares
     @sales_by_artist ||= @artists.group(:artist_id)

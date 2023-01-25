@@ -36,7 +36,7 @@
                   <div class="w-10 h-15 shrink-0 mr-2 sm:mr-3">
                     <img class="rounded-full" src="https://live-production.wcms.abc-cdn.net.au/05fd760dfa4f582959e4a9f190a69b06?impolicy=wcms_crop_resize&cropH=675&cropW=1199&xPos=0&yPos=0&width=862&height=485" width="40" height="40" />
                   </div>
-                  <div class="font-medium text-slate-800"><%= artist.name %></div>
+                  <%= link_to artist.name, artists_catalog_path(search: artist.name), class: "font-medium text-slate-800" %>
                 </div>
               </td>
               <td class="p-2 whitespace-nowrap">

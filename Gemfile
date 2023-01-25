@@ -48,6 +48,8 @@ gem "bootsnap", require: false
 gem 'fast_jsonparser'
 gem 'activerecord-import'
 
+gem 'byebug'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
