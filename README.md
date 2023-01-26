@@ -2,6 +2,18 @@
 
 Eddy-app2 is a proto-app for a label management of their artists catalog and revenues.
 
+## How to run
+
+This app uses `Rails 7.0.4.2` and `ruby 3.1.3`<br/>
+Follow these commands :
+- `bundle install`
+- `rails db:create`
+- `rails db:migrate`
+- `rails db:seed`
+- `./bin/dev` to run !
+
+You can check the funnel test with `rails test test/system/funnels_test.rb`
+
 ## Back-end performance
 
 The seeding phase was a big part of the assignment, so performance was an important topic.
