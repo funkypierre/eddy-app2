@@ -43,7 +43,7 @@ I've decided not to implement a framework like React, but to use Tailwind CSS in
 ## Views
 I have separated the features in two views.
 - `artists/summary` : acts as the homepage. Display all shares distribution for each artist. Clicking on an artist name will send you to their catalog page.
-- `artists/summary` : still acts as an index page, but to show each artists releases and tracks, with the possibility of filtering by artist name or year of release.
+- `artists/catalog` : still acts as an index page, but to show each artists releases and tracks, with the possibility of filtering by artist name or year of release.
 
 ## Testing
 
