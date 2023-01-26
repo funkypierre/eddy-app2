@@ -6,6 +6,11 @@ class Release < ApplicationRecord
 
   has_many :sales, as: :product
 
+  validates :title, presence: true
+  validates :artist, presence: true
+  validates :upc, presence: true
+  validates :year, presence: true
+
   def self.upc(upc)
     find_or_initialize_by(upc:)
   end

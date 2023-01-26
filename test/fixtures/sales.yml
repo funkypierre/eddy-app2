@@ -4,8 +4,12 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+first:
+  id: 1
+  product_type: Track
+  product_id: 1
+  artist_id: 1
+  transaction_type: Download Tracks
+  net_share: 1
+  label_share: 0.7
+  artist_share: 0.3

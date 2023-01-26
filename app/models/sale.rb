@@ -23,6 +23,10 @@ class Sale < ApplicationRecord
   belongs_to :product, polymorphic: true
   belongs_to :artist
 
-  scope :releases, -> { where(product_type: 'Release') }
-  scope :tracks, -> { where(product_type: 'Track') }
+  validates :product, presence: true
+  validates :artist, presence: true
+  validates :transaction_type, presence: true
+  validates :net_share, presence: true
+  validates :label_share, presence: true
+  validates :artist_share, presence: true
 end

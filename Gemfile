@@ -49,6 +49,7 @@ gem 'fast_jsonparser'
 gem 'activerecord-import'
 
 gem 'byebug'
+gem 'minitest-rails'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
