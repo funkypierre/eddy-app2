@@ -1,7 +1,7 @@
 class ArtistsController < ApplicationController
   CATALOG_LIMIT = 10.freeze
 
-  def recap
+  def summary
     @artists = Artist.includes(:sales).all
     @artists_shares = artists_shares
   end
@@ -20,6 +20,7 @@ class ArtistsController < ApplicationController
 
   def artists_shares
     @sales_by_artist ||= @artists.group(:artist_id)
+
     {
       net_shares: @sales_by_artist.sum(:net_share),
       label_shares: @sales_by_artist.sum(:label_share),

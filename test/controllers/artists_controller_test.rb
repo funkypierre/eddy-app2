@@ -1,8 +1,8 @@
 require "test_helper"
 
 class ArtistsControllerTest < ActionDispatch::IntegrationTest
-  test "should get recap" do
-    get artists_recap_url
+  test "should get summary" do
+    get artists_summary_url
     assert_response :success
   end
 end

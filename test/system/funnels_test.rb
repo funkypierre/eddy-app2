@@ -4,11 +4,11 @@ class FunnelsTest < ApplicationSystemTestCase
   test 'it should access the homepage' do
     visit root_path
 
-    assert_text 'Artists recap'
+    assert_text 'Artists summary'
     assert_text 'Metallica'
   end
 
-  test 'it should access an artist catalog through the recap' do
+  test 'it should access an artist catalog through the summary' do
     visit root_path
 
     click_on 'Metallica'
